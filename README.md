@@ -9,7 +9,7 @@
 * **Application Name:** ELITEA_Repository
 * **Service Owner:** Your Name (your.email@example.com)
 * **Business Impact:** Critical
-* **Description:** ELITEA_Repository is an enterprise-grade backend service built on Java 17 and Spring Boot to manage centralized repository metadata, automated application synchronization, and version governance.
+* **Description:** ELITEA_Repository is an enterprise-grade backend service built on Java 17 and Spring Boot to manage centralized repository metadata, automated application synchronization, and version governance across cloud environments.
 
 ---
 
@@ -32,17 +32,21 @@
 
 ---
 
-## 4. Technical Configuration & Entry Points
+## 4. Technical Configuration
 * **Main Branch:** `main`
 * **Build Tool:** Maven
-* **Main Execution File:** `src/main/java/com/example/elitea/EliteaRepositoryApplication.java`
-* **Primary API Route:** `/api/v1/repository`
 * **Critical Env Variables:** `SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME`, `SPRING_DATASOURCE_PASSWORD`, `SERVER_PORT`
 * **Deployment Pipeline:** GitHub Actions
 
 ---
 
-## 5. Quality & Compliance
+## 5. Endpoint/Entry Points
+* **Main Execution File:** `src/main/java/com/example/elitea/EliteaRepositoryApplication.java`
+* **Primary API Route:** `/api/v1/repository`
+
+---
+
+## 6. Quality & Compliance
 * **Test Frameworks:** JUnit 5, Mockito
 * **Code Coverage Goal:** 80%
 * **Security Scanning:** SonarQube
@@ -50,7 +54,7 @@
 
 ---
 
-## 6. Documentation & Resources
+## 7. Documentation & Resources
 * **GitHub Repository:** https://github.com/example/ELITEA_Repository
 * **API Documentation:** https://confluence.example.com/docs/elitea-repo
 * **JIRA Board:** https://jira.example.com/projects/ELITEA
