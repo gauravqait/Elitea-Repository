@@ -5,57 +5,54 @@
 
 ---
 
-## 1. Executive Summary
-* **Application Name:** ELITEA_Repository
-* **Service Owner:** Your Name (your.email@example.com)
-* **Business Impact:** Critical
-* **Description:** ELITEA_Repository is an enterprise-grade backend service built on Java 17 and Spring Boot to manage centralized repository metadata, automated application synchronization, and version governance across cloud environments.
+## Application Name
+ELITEA_Repository
 
 ---
 
-## 2. System Architecture & Tech Stack
-
-| Component | Specification |
-| :--- | :--- |
-| **Language/Runtime** | Java 17 |
-| **Frameworks** | Spring Boot 3.2.5, Spring Data JPA |
-| **Primary Database** | PostgreSQL |
-| **Cloud Provider** | AWS |
-| **Infrastructure** | Docker, Kubernetes |
+## Project Overview
+ELITEA_Repository is an enterprise-grade backend service built on Java 17 and Spring Boot to manage centralized repository metadata, automated application synchronization, and version governance across cloud environments. It serves internal developers and administrators by providing robust API access to repository configurations and compliance tracking.
 
 ---
 
-## 3. Integration & Dependencies
-* **Upstream Dependencies:** Auth Service, Configuration Server
-* **Downstream Consumers:** ELITEA Portal UI, CLI Sync Tool
-* **External APIs:** None
+## System Architecture
+The system follows a microservices architecture pattern, containerized using Docker and orchestrated via Kubernetes on AWS cloud infrastructure. 
+
+* **Architecture Diagram:** See [`docs/architecture.png`](./docs/architecture.png) for the full component and data flow diagram.
+
+### Tech Stack
+* **Language/Runtime:** Java 17
+* **Frameworks:** Spring Boot 3.2.5, Spring Data JPA
+* **Primary Database:** PostgreSQL
+* **Cloud Provider:** AWS
+* **Infrastructure:** Docker, Kubernetes
 
 ---
 
-## 4. Technical Configuration
-* **Main Branch:** `main`
-* **Build Tool:** Maven
-* **Critical Env Variables:** `SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME`, `SPRING_DATASOURCE_PASSWORD`, `SERVER_PORT`
-* **Deployment Pipeline:** GitHub Actions
-
----
-
-## 5. Endpoint/Entry Points
+## Endpoint/Entry Points
+The application runs as a Spring Boot web application. Detailed API routes and schemas are available in the OpenAPI specification file:
+* **API Documentation Spec:** [`docs/openapi.yaml`](./docs/openapi.yaml)
 * **Main Execution File:** `src/main/java/com/example/elitea/EliteaRepositoryApplication.java`
-* **Primary API Route:** `/api/v1/repository`
+* **Primary API Routes:**
+  * `GET /api/v1/repository/all` - Retrieve all repository metadata
+  * `POST /api/v1/repository/sync` - Trigger automated application synchronization
+  * `GET /api/v1/repository/health` - Health check and actuator status
 
 ---
 
-## 6. Quality & Compliance
-* **Test Frameworks:** JUnit 5, Mockito
-* **Code Coverage Goal:** 80%
-* **Security Scanning:** SonarQube
-* **Observation/Logging:** Datadog / Spring Boot Actuator
+## Environment Config
+The application requires specific environment variables to run. A template file is provided at root level:
+* **Config Template:** See [`.env.example`](./.env.example) for required keys.
 
 ---
 
-## 7. Documentation & Resources
-* **GitHub Repository:** https://github.com/example/ELITEA_Repository
-* **API Documentation:** https://confluence.example.com/docs/elitea-repo
-* **JIRA Board:** https://jira.example.com/projects/ELITEA
-* **On-Call Rotation:** https://pagerduty.example.com/teams/elitea
+## Maintainers
+* **Primary Owner:** Your Name (`your.email@example.com`)
+* **Team:** ELITEA Core Infrastructure Team
+
+---
+
+## Additional Resources
+* **GitHub Repository:** [https://github.com/example/ELITEA_Repository](https://github.com/example/ELITEA_Repository)
+* **JIRA Board:** [https://jira.example.com/projects/ELITEA](https://jira.example.com/projects/ELITEA)
+* **On-Call Rotation:** [https://pagerduty.example.com/teams/elitea](https://pagerduty.example.com/teams/elitea)
