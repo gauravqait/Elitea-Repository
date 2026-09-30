@@ -1,4 +1,4 @@
-# [Insert Application Name]
+# ELITEA_Repository
 
 > **Current Version:** v.1.0.0  
 > **Last Updated:** 2026-09-30 (via EliteA Automated Sync)
@@ -6,10 +6,10 @@
 ---
 
 ## 1. Executive Summary
-* **Application Name:** [App Name]
-* **Service Owner:** [Primary Contact/Team]
-* **Business Impact:** [Critical / Supporting / Internal]
-* **Description:** A concise 2-3 sentence summary of what this application does and who it serves.
+* **Application Name:** ELITEA_Repository
+* **Service Owner:** Your Name (your.email@example.com)
+* **Business Impact:** Critical
+* **Description:** ELITEA_Repository is an enterprise-grade backend service built on Java 17 and Spring Boot to manage centralized repository metadata, automated application synchronization, and version governance.
 
 ---
 
@@ -17,39 +17,41 @@
 
 | Component | Specification |
 | :--- | :--- |
-| **Language/Runtime** | (e.g., Java 17, Python 3.11, Node.js 20) |
-| **Frameworks** | (e.g., Spring Boot, FastAPI, React) |
-| **Primary Database** | (e.g., PostgreSQL, DynamoDB, MongoDB) |
-| **Cloud Provider** | (e.g., GCP, AWS, Azure) |
-| **Infrastructure** | (e.g., Kubernetes, Docker, Serverless Functions) |
+| **Language/Runtime** | Java 17 |
+| **Frameworks** | Spring Boot 3.2.5, Spring Data JPA |
+| **Primary Database** | PostgreSQL |
+| **Cloud Provider** | AWS |
+| **Infrastructure** | Docker, Kubernetes |
 
 ---
 
 ## 3. Integration & Dependencies
-* **Upstream Dependencies:** (What services does this app call?)
-* **Downstream Consumers:** (Who calls this app?)
-* **External APIs:** (List any 3rd party integrations like Stripe, Twilio, etc.)
+* **Upstream Dependencies:** Auth Service, Configuration Server
+* **Downstream Consumers:** ELITEA Portal UI, CLI Sync Tool
+* **External APIs:** None
 
 ---
 
-## 4. Technical Configuration
+## 4. Technical Configuration & Entry Points
 * **Main Branch:** `main`
-* **Build Tool:** (e.g., Maven, Gradle, NPM)
-* **Critical Env Variables:** (List names only, no secrets/values)
-* **Deployment Pipeline:** (e.g., GitHub Actions, Jenkins, GitLab CI)
+* **Build Tool:** Maven
+* **Main Execution File:** `src/main/java/com/example/elitea/EliteaRepositoryApplication.java`
+* **Primary API Route:** `/api/v1/repository`
+* **Critical Env Variables:** `SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME`, `SPRING_DATASOURCE_PASSWORD`, `SERVER_PORT`
+* **Deployment Pipeline:** GitHub Actions
 
 ---
 
 ## 5. Quality & Compliance
-* **Test Frameworks:** (e.g., PyTest, JUnit, Playwright)
-* **Code Coverage Goal:** (e.g., 80%)
-* **Security Scanning:** (e.g., SonarQube, Snyk)
-* **Observation/Logging:** (e.g., ELK Stack, Datadog, Splunk)
+* **Test Frameworks:** JUnit 5, Mockito
+* **Code Coverage Goal:** 80%
+* **Security Scanning:** SonarQube
+* **Observation/Logging:** Datadog / Spring Boot Actuator
 
 ---
 
 ## 6. Documentation & Resources
-* **GitHub Repository:** [URL]
-* **API Documentation:** [Swagger/Confluence Link]
-* **JIRA Board:** [Link]
-* **On-Call Rotation:** [Link]
+* **GitHub Repository:** https://github.com/example/ELITEA_Repository
+* **API Documentation:** https://confluence.example.com/docs/elitea-repo
+* **JIRA Board:** https://jira.example.com/projects/ELITEA
+* **On-Call Rotation:** https://pagerduty.example.com/teams/elitea
