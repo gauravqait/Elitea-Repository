@@ -20,44 +20,10 @@ The system follows a microservices architecture pattern, containerized using Doc
 
 ```mermaid
 graph TD
-    User["Client / Portal UI"] --> API["Spring Boot REST API (/api/v1/repository)"]
+    User["Client / Portal UI"] --> API["Spring Boot REST API"]
     API --> Service["Repository Metadata Service"]
-    Service --> DB[("PostgreSQL Database")]
+    Service --> DB["PostgreSQL Database"]
     Service --> Cloud["AWS Cloud Infrastructure"]
-    style API fill:#41B883,stroke:#333,stroke-width:2px
-    style DB fill:#3178C6,stroke:#333,stroke-width:2px
-
-markdown
-
-
-# ELITEA_Repository
-
-> **Current Version:** v.1.0.0  
-> **Last Updated:** 2026-09-30 (via EliteA Automated Sync)
-
----
-
-## Application Name
-ELITEA_Repository
-
----
-
-## Project Overview
-ELITEA_Repository is an enterprise-grade backend service built on Java 17 and Spring Boot to manage centralized repository metadata, automated application synchronization, and version governance across cloud environments. It serves internal developers and administrators by providing robust API access to repository configurations, compliance tracking, and automated sync pipelines.
-
----
-
-## System Architecture
-The system follows a microservices architecture pattern, containerized using Docker and orchestrated via Kubernetes on AWS cloud infrastructure.
-
-```mermaid
-graph TD
-    User["Client / Portal UI"] --> API["Spring Boot REST API (/api/v1/repository)"]
-    API --> Service["Repository Metadata Service"]
-    Service --> DB[("PostgreSQL Database")]
-    Service --> Cloud["AWS Cloud Infrastructure"]
-    style API fill:#41B883,stroke:#333,stroke-width:2px
-    style DB fill:#3178C6,stroke:#333,stroke-width:2px
 Tech Stack
 Component	Specification
 Language/Runtime	Java 17
@@ -104,3 +70,4 @@ Additional Resources
 GitHub Repository: https://github.com/example/ELITEA_Repository
 JIRA Board: https://jira.example.com/projects/ELITEA
 On-Call Rotation: https://pagerduty.example.com/teams/elitea
+
