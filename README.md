@@ -24,6 +24,7 @@ graph TD
     API --> Service["Repository Metadata Service"]
     Service --> DB["PostgreSQL Database"]
     Service --> Cloud["AWS Cloud Infrastructure"]
+
 Tech Stack
 Component	Specification
 Language/Runtime	Java 17
@@ -31,6 +32,7 @@ Frameworks	Spring Boot 3.2.5, Spring Data JPA
 Primary Database	PostgreSQL
 Cloud Provider	AWS
 Infrastructure	Docker, Kubernetes
+
 Endpoint/Entry Points
 The application runs as a Spring Boot web application. Below are the primary execution files and documented REST API routes:
 
@@ -47,12 +49,9 @@ Response: Status 200 OK with sync summary.
 GET /api/v1/repository/health
 Description: Health check and Actuator status endpoint.
 Parameters: None
+
 Environment Config
 To run this application locally or in a containerized environment, the following configuration variables and system dependencies must be set:
-
-env
-
-
 # Database Configuration
 SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/elitea_db
 SPRING_DATASOURCE_USERNAME=postgres
@@ -63,11 +62,12 @@ SERVER_PORT=8080
 
 # Management & Actuator
 MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE=health,metrics,info
+
 Maintainers
-Primary Owner: Your Name (your.email@example.com)
+Primary Owner: Your Name (gaurav_agarwal@epam.com)
 Team: ELITEA Core Infrastructure Team
+
 Additional Resources
 GitHub Repository: https://github.com/example/ELITEA_Repository
 JIRA Board: https://jira.example.com/projects/ELITEA
 On-Call Rotation: https://pagerduty.example.com/teams/elitea
-
