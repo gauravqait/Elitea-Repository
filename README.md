@@ -2,25 +2,34 @@
 
 Enterprise-grade backend service for centralized repository metadata management, automated application synchronization, and version governance across cloud environments.
 
+https://img.shields.io/badge/Java-17-blue
+https://img.shields.io/badge/Spring%20Boot-3.2.5-green
+https://img.shields.io/badge/PostgreSQL-Database-blue
+https://img.shields.io/badge/AWS-Cloud-orange
+https://img.shields.io/badge/Docker-Containerization-blue
+![Kubernetesshields.io/badge/Kubernetes-EKS-blue
+
+---
+
 ## Overview
 
-Elitea-Repository is a Java 17 and Spring Boot based backend application that provides centralized management of repository metadata, automated synchronization capabilities, compliance tracking, and repository governance across cloud environments.
+Elitea-Repository is an enterprise-grade backend application built using Java 17 and Spring Boot. The platform provides centralized repository metadata management, automated application synchronization, repository governance, and compliance tracking capabilities across cloud environments.
 
-The platform enables internal developers and administrators to manage repository configurations, monitor repository health, trigger synchronization processes, and maintain consistent version governance across the organization.
+The service enables development teams and administrators to manage repository configurations, monitor repository health, automate synchronization workflows, and maintain governance standards throughout the software delivery lifecycle.
 
 ---
 
 ## Service Information
 
-**Application Name:** Elitea-Repository
-
-**Service Owner:** Gaurav Agarwal (gaurav_agarwal@epam.com)
-
-**Business Impact:** Critical
-
-**Current Version:** v1.0.0
-
-**Last Updated:** 2026-09-30
+| Property | Value |
+|-----------|---------|
+| Application Name | Elitea-Repository |
+| Service Owner | Gaurav Agarwal |
+| Email | gaurav_agarwal@epam.com |
+| Business Impact | Critical |
+| Version | v1.0.0 |
+| Deployment | Production |
+| Last Updated | 2026-09-30 |
 
 ---
 
@@ -28,76 +37,74 @@ The platform enables internal developers and administrators to manage repository
 
 ```mermaid
 graph TD
-    User["Client / Portal UI"] --> API["Spring Boot REST API"]
-    API --> Service["Repository Metadata Service"]
-    Service --> DB["PostgreSQL Database"]
-    Service --> Cloud["AWS Cloud Infrastructure"]
+    User["Client / Portal UI"]
+    API["Spring Boot REST API"]
+    Service["Repository Metadata Service"]
+    DB["PostgreSQL Database"]
+    Cloud["AWS Cloud Infrastructure"]
+
+    User --> API
+    API --> Service
+    Service --> DB
+    Service --> Cloud
 ```
+
+### System Flow
+
+1. Client applications invoke REST APIs.
+2. Spring Boot processes incoming requests.
+3. Repository Metadata Service executes business logic.
+4. Data is persisted in PostgreSQL.
+5. Synchronization activities interact with AWS infrastructure.
+6. Results are returned to consumers.
 
 ---
 
 ## Technology Stack
 
 ### Backend
+
 - Java 17
 - Spring Boot 3.2.5
 - Spring Data JPA
 
 ### Database
+
 - PostgreSQL
 
 ### Infrastructure
+
 - AWS
 - Docker
-- Kubernetes (EKS)
+- Kubernetes (Amazon EKS)
 
-### Build & CI/CD
+### Build & Dependency Management
+
 - Maven
+
+### CI/CD
+
 - GitHub Actions
 
-### Quality & Security
+### Testing
+
 - JUnit 5
 - Mockito
+
+### Quality & Security
+
 - SonarQube
 - Snyk
 
-### Monitoring & Observability
+### Monitoring & Logging
+
 - Datadog
 - Spring Boot Actuator
 - SLF4J
 
 ---
 
-## System Dependencies
-
-### Upstream Services
-- Auth Service
-- Configuration Server
-
-### Downstream Consumers
-- Elitea Portal UI
-- CLI Sync Tool
-
-### External APIs
-- None
-
----
-
-## Repository Information
-
-### Git Repository
-
-```text
-https://github.com/gauravqait/Elitea-Repository
-```
-
-### Default Branch
-
-```text
-main
-```
-
-### Project Structure
+## Repository Structure
 
 ```text
 Elitea-Repository
@@ -105,21 +112,48 @@ Elitea-Repository
 ├── src
 │   ├── main
 │   │   ├── java
-│   │   │   └── com/example/elitea/
+│   │   │   └── com/example/elitea
 │   │   │       └── EliteaRepositoryApplication.java
 │   │   └── resources
 │   │
 │   └── test
 │
+├── .github
+│   └── workflows
+│
 ├── pom.xml
 ├── Dockerfile
-├── .github/workflows
 └── README.md
 ```
 
 ---
 
-## Build & Run
+## Dependencies
+
+### Upstream Dependencies
+
+- Auth Service
+- Configuration Server
+
+### Downstream Consumers
+
+- Elitea Portal UI
+- CLI Sync Tool
+
+### External APIs
+
+- None
+
+---
+
+## Build Instructions
+
+### Clone Repository
+
+```bash
+git clone https://github.com/gauravqait/Elitea-Repository.git
+cd Elitea-Repository
+```
 
 ### Build Application
 
@@ -127,38 +161,46 @@ Elitea-Repository
 mvn clean install
 ```
 
-### Run Application
-
-```bash
-mvn spring-boot:run
-```
-
-### Run Tests
+### Run Unit Tests
 
 ```bash
 mvn test
 ```
 
-### Generate Package
+### Package Application
 
 ```bash
 mvn clean package
 ```
 
+### Run Locally
+
+```bash
+mvn spring-boot:run
+```
+
 ---
 
-## Configuration
+## Application Entry Point
 
-### Required Environment Variables
+```text
+src/main/java/com/example/elitea/EliteaRepositoryApplication.java
+```
 
-| Variable | Description |
-|-----------|-------------|
-| SPRING_DATASOURCE_URL | PostgreSQL connection URL |
-| SPRING_DATASOURCE_USERNAME | Database username |
-| SPRING_DATASOURCE_PASSWORD | Database password |
-| SERVER_PORT | Server port |
+---
 
-### Example Configuration
+## Environment Variables
+
+The following environment variables are required before application startup:
+
+```bash
+SPRING_DATASOURCE_URL
+SPRING_DATASOURCE_USERNAME
+SPRING_DATASOURCE_PASSWORD
+SERVER_PORT
+```
+
+### Example
 
 ```bash
 export SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/elitea
@@ -169,9 +211,9 @@ export SERVER_PORT=8080
 
 ---
 
-## API Endpoints
+## REST API Endpoints
 
-### Get All Repository Metadata
+### Retrieve Repository Metadata
 
 ```http
 GET /api/v1/repository/all
@@ -179,13 +221,17 @@ GET /api/v1/repository/all
 
 Returns all repository metadata records.
 
-### Trigger Repository Synchronization
+---
+
+### Trigger Synchronization
 
 ```http
 POST /api/v1/repository/sync
 ```
 
-Starts the automated synchronization process.
+Triggers automated application synchronization workflow.
+
+---
 
 ### Health Check
 
@@ -193,30 +239,37 @@ Starts the automated synchronization process.
 GET /api/v1/repository/health
 ```
 
-Returns application and actuator health status.
+Returns application health and actuator status.
 
 ---
 
 ## Deployment
 
+### Source Branch
+
+```text
+main
+```
+
 ### CI/CD Pipeline
 
 GitHub Actions performs:
 
-- Source code validation
-- Automated testing
-- SonarQube analysis
+- Source validation
+- Application build
+- Unit test execution
+- Quality analysis
 - Security scanning
-- Docker image generation
+- Docker image creation
 - Kubernetes deployment
 
-### Deployment Target
+### Deployment Platform
 
 ```text
 AWS Elastic Kubernetes Service (EKS)
 ```
 
-### Container Platform
+### Container Runtime
 
 ```text
 Docker
@@ -226,29 +279,48 @@ Docker
 
 ## Quality Standards
 
-### Testing
+### Test Frameworks
 
-- Framework: JUnit 5
-- Mocking: Mockito
-- Target Code Coverage: 80%
+- JUnit 5
+- Mockito
+
+### Coverage Goal
+
+```text
+80%
+```
 
 ### Static Analysis
 
 - SonarQube
 
-### Security
+### Security Scanning
 
-- Snyk Vulnerability Scanning
+- Snyk
 
-### Observability
+### Build Requirements
 
-- Datadog Monitoring
-- Spring Boot Actuator
-- SLF4J Logging
+- Successful build
+- Successful test execution
+- Minimum coverge threshold met
+- No critical SonarQube issues
+- No high severity security defects
 
 ---
 
-## Monitoring
+## Observability
+
+### Monitoring
+
+- Datadog
+
+### Application Health
+
+- Spring Boot Actuator
+
+### Logging
+
+- SLF4J
 
 ### Health Endpoint
 
@@ -256,83 +328,67 @@ Docker
 GET /api/v1/repository/health
 ```
 
-### Logging Features
-
-- Application Logs
-- Error Logs
-- Audit Logs
-- Synchronization Activity Logs
-
 ---
 
 ## Security
 
-Security controls implemented include:
+Implemented security capabilities include:
 
-- Centralized Authentication Integration
-- Role Based Access Control (RBAC)
-- Secure Database Access
-- Continuous Vulnerability Scanning
-- Static Code Analysis
-- Container Security Checks
+- Authentication service integration
+- Repository governance controls
+- Secure database connectivity
+- Vulnerability scanning
+- Static code analysis
+- Audit logging
+- Container security validation
 
-### Security Best Practices
+### Security Recommendations
 
-- Never commit credentials to source control.
-- Store secrets using secure secret management solutions.
-- Enable TLS for all external communications.
-- Rotate credentials regularly.
+- Do not commit secrets to source control.
+- Use encrypted secret stores.
+- Enable TLS for all communications.
+- Rotate credentials periodically.
+- Regularly review vulnerability reports.
 
 ---
 
 ## Documentation
 
-### Application Repository
+### GitHub Repository
 
+```text
 https://github.com/gauravqait/Elitea-Repository
+```
 
 ### Additional Resources
 
-- Swagger API Documentation
-- Confluence Documentation
-- JIRA Project Board
-- PagerDuty On-Call Support
+#### API Documentation
+
+```text
+https://confluence.example.com/docs/elitea-repo
+```
+
+#### JIRA Board
+
+```text
+https://jira.example.com/projects/ELITEA
+```
+
+#### On-Call Support
+
+```text
+https://pagerduty.example.com/teams/elitea
+```
 
 ---
 
-## Support
+## Operational Support
 
-**Primary Owner:** Gaurav Agarwal
+### Service Owner
 
-**Email:** gaurav_agarwal@epam.com
+**Gaurav Agarwal**  
+gaurav_agarwal@epam.com
 
-### Operational Support
+### Support Channels
 
 - Development Team
-- GitHub Actions Pipeline Monitoring
-- Datadog Monitoring
-- PagerDuty On-Call Rotation
-
----
-
-## Version History
-
-| Version | Date | Description |
-|----------|------------|-------------|
-| v1.0.0 | 2026-09-30 | Initial Release |
-
----
-
-## License
-
-Proprietary Internal Application
-
-This repository contains confidential enterprise software intended for authorized organizational use only.
-
----
-
-## Status
-
-✅ Production Ready
-
-Managed through automated synchronization and governance workflows within the EliteA ecosystem.
