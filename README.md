@@ -25,6 +25,8 @@ graph TD
     Service --> DB["PostgreSQL Database"]
     Service --> Cloud["AWS Cloud Infrastructure"]
 
+```
+
 Tech Stack
 Component	Specification
 Language/Runtime	Java 17
